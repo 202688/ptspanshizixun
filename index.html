@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>莆田市磐实信息咨询有限公司</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+      line-height: 1.7;
+      color: #1f2937;
+      background: #f8fafc;
+    }
+
+    a { text-decoration: none; }
+
+    .container {
+      width: min(1200px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    .logo span {
+      color: #2563eb;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #334155;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: #2563eb;
+    }
+
+    .phone-btn {
+      background: linear-gradient(135deg, #2563eb, #0ea5e9);
+      color: white;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-weight: 600;
+      box-shadow: 0 10px 25px rgba(37,99,235,0.25);
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background:
+        radial-gradient(circle at top right, rgba(37,99,235,0.15), transparent 40%),
+        linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0ea5e9 100%);
+      color: white;
+      padding-top: 90px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 64px);
+      line-height: 1.15;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 32px;
+      max-width: 680px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: white;
+      color: #0f172a;
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.08);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 24px;
+      padding: 32px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    }
+
+    .hero-card h3 {
+      margin-bottom: 20px;
+      font-size: 22px;
+    }
+
+    .hero-card ul {
+      list-style: none;
+    }
+
+    .hero-card li {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* Sections */
+    section {
+      padding: 90px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+      font-size: 38px;
+      margin-bottom: 12px;
+      color: #0f172a;
+    }
+
+    .section-title p {
+      color: #64748b;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: 0 12px 40px rgba(15,23,42,0.06);
+      border: 1px solid #e5e7eb;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(15,23,42,0.10);
+    }
+
+    .icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #2563eb, #0ea5e9);
+      color: white;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+      font-size: 22px;
+      color: #0f172a;
+    }
+
+    .card p {
+      color: #64748b;
+    }
+
+    .about {
+      background: white;
+    }
+
+    .about-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about-content h2 {
+      font-size: 40px;
+      margin-bottom: 20px;
+      color: #0f172a;
+    }
+
+    .about-content p {
+      color: #475569;
+      margin-bottom: 18px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .stat {
+      background: #eff6ff;
+      padding: 28px;
+      border-radius: 18px;
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 30px;
+      color: #2563eb;
+      margin-bottom: 8px;
+    }
+
+    .contact {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: white;
+    }
+
+    .contact-box {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .contact-box h2 {
+      font-size: 40px;
+      margin-bottom: 16px;
+    }
+
+    .contact-info {
+      margin-top: 32px;
+      display: grid;
+      gap: 14px;
+      font-size: 18px;
+    }
+
+    footer {
+      background: #020617;
+      color: #94a3b8;
+      text-align: center;
+      padding: 24px 0;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .about-box,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 120px 0 60px;
+      }
+
+      .section-title h2,
+      .about-content h2,
+      .contact-box h2 {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="logo">磐实<span>信息咨询</span></div>
+    <ul class="nav-links">
+      <li><a href="#home">首页</a></li>
+      <li><a href="#services">服务项目</a></li>
+      <li><a href="#about">关于我们</a></li>
+      <li><a href="#contact">联系我们</a></li>
+    </ul>
+    <a href="tel:18850998049" class="phone-btn">18850998049</a>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <div class="badge">专业 IT 互联网信息咨询服务商</div>
+      <h1>数字化赋能企业<br>让信息创造价值</h1>
+      <p>
+        莆田市磐实信息咨询有限公司专注于互联网信息咨询、数字化解决方案、技术顾问与企业信息服务，
+        为企业提供高效、专业、可靠的一站式咨询支持。
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">立即咨询</a>
+        <a href="#services" class="btn btn-secondary">了解服务</a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <h3>核心服务领域</h3>
+      <ul>
+        <li>? IT 项目咨询与规划</li>
+        <li>? 企业数字化转型建议</li>
+        <li>? 网站与系统建设方案</li>
+        <li>? 数据分析与信息服务</li>
+        <li>? 互联网商业模式咨询</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <div class="section-title">
+      <h2>我们的服务</h2>
+      <p>聚焦企业数字化升级，提供专业的信息咨询与互联网技术服务。</p>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <div class="icon">??</div>
+        <h3>IT 技术咨询</h3>
+        <p>根据企业需求提供技术架构建议、系统规划与实施方案。</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">??</div>
+        <h3>互联网解决方案</h3>
+        <p>涵盖官网建设、商城系统、数据平台与业务流程优化。</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">??</div>
+        <h3>信息与数据服务</h3>
+        <p>提供数据分析、市场调研与信息整理支持企业决策。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container about-box">
+    <div class="about-content">
+      <h2>关于磐实信息咨询</h2>
+      <p>
+        “磐实”寓意稳健如磐石、务实求真。我们致力于以专业视角帮助企业识别问题、优化流程、提高效率。
+      </p>
+      <p>
+        我们坚持以客户需求为核心，为中小企业和创业团队提供切实可行的互联网咨询方案。
+      </p>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <strong>专业</strong>
+        IT 与互联网咨询服务
+      </div>
+      <div class="stat">
+        <strong>高效</strong>
+        快速响应客户需求
+      </div>
+      <div class="stat">
+        <strong>可靠</strong>
+        注重长期合作关系
+      </div>
+      <div class="stat">
+        <strong>务实</strong>
+        提供可落地方案
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container contact-box">
+    <h2>联系我们</h2>
+    <p>欢迎来电咨询，我们将为您提供专业的信息咨询服务。</p>
+
+    <div class="contact-info">
+      <div>?? 联系电话：18850998049</div>
+      <div>?? 公司名称：莆田市磐实信息咨询有限公司</div>
+      <div>?? 公司地址：福建省莆田市秀屿区笏石街道北埔村瑶厝45号</div>
+    </div>
+
+    <div style="margin-top: 30px;">
+      <a href="tel:18850998049" class="btn btn-primary">立即拨打电话</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  ? 2026 莆田市磐实信息咨询有限公司 版权所有
+</footer>
+
+</body>
+</html>
